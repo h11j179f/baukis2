@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= document_title %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "staff", media: "all", "data-turbolinks-track": "reload" %>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <%= javascript_pack_tag "staff", "data-turbolinks-track": "reload" %>
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <%= render "staff/shared/header" %>
+      <div id="container">
+        <%= yield %>
+      </div>
+      <%= render "shared/footer" %>
+    </div>
+  </body>
+</html>

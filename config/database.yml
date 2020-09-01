@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: db
+  username: postgres
+  password: ""
+
+development:
+  <<: *default
+  database: baukis2_development
+
+test:
+  <<: *default
+  database: baukis2_test
+
+production:
+  <<: *default
+  database: baukis2_production
+  username: postgres
+  password: <%= ENV["BAUKIS2_DATABASE_PASSWORD"] %>
