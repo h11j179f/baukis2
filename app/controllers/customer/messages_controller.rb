@@ -3,6 +3,14 @@ class Customer::MessagesController < Customer::Base
     @message = CustomerMessage.new
   end
 
+  def index
+    @messages = current_customer.inbound_messages.sorted.page(params[:page])
+  end
+
+  def show
+    @message = current_customer.inbound_messages.find(params[:id])
+  end
+
   def confirm
     @message = CustomerMessage.new(customer_message_params)
     @message.customer = current_customer
@@ -28,6 +36,13 @@ class Customer::MessagesController < Customer::Base
     else
       render action: "new"
     end
+  end
+
+  def destroy
+    message = current_customer.inbound_messages.find(params[:id])
+    message.update_column(:discarded, true)
+    flash.notice = "メッセージを削除しました。"
+    redirect_back(fallback_location: :cutomer_messages)
   end
 
   private def customer_message_params

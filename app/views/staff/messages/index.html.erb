@@ -11,12 +11,14 @@
 <h1><%= @title %></h1>
 
 <div class="table-wrapper">
+  <%= render "links" %>
+
   <%= paginate @messages %>
 
   <table class="listing">
     <tr>
       <th>種類</th>
-      <th>送信者</th>
+      <th>送c信者</th>
       <th>受信者</th>
       <th>件名</th>
       <th>作成日時</th>
@@ -40,4 +42,6 @@
   </table>
 
   <%= paginate @messages %>
+
+  <%= render "tags" %>
 </div>

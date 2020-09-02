@@ -8,6 +8,18 @@ class Staff::AjaxController < ApplicationController
     render plain: CustomerMessage.unprocessed.count
   end
 
+  def add_tag
+    message = Message.find(params[:id])
+    message.add_tag(params[:label])
+    render plain: "ok"
+  end
+
+  def remove_tag
+    message = Message.find(params[:id])
+    message.remove_tag(params[:label])
+    render plain: "ok"
+  end
+
   private def check_source_ip_address
     unless AllowedSource.include?("staff", request.ip)
       render plain: "Forbidden", status: 403
