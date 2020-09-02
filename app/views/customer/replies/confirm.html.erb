@@ -5,7 +5,7 @@
   <%= form_with model: @reply, url: customer_message_reply_path(@message) do |f| %>
     <%= render "confirming_form", f: f %>
     <div class="buttons">
-      <%= f.submit "送信" %>
+      <%= f.submit "送信", name: "commit" %>
       <%= f.submit "訂正", name: "correct" %>
       <%= link_to "キャンセル", :customer_messages %>
     </div>
