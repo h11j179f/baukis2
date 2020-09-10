@@ -9,13 +9,16 @@ ja:
         given_name_kana: フリガナ（名）
         start_date: 開始日
         end_date: 終了日
-  errors:
-    models:
-      staff_member:
-        attributes:
-          email:
-            taken: が他の職員と重複しています。
-    messages:
-      date_after_or_equal_to: には2000年1月1日以降の日付を指定してください。
-      date_after: には開始日より前の日付を指定してください。
-      date_before: には1年後の日付より前の日付を指定してください。
+    errors:
+      models:
+        staff_member:
+          attributes:
+            email:
+              taken: が他の職員と重複しています。
+            start_date:
+              date_after_or_equal_to: には2000年1月1日以降の日付を指定してください。
+              date_before: には1年後の日付より前の日付を指定してください。
+            end_date:
+              date_after_or_equal_to: には2000年1月1日以降の日付を指定してください。
+              date_before: には1年後の日付より前の日付を指定してください。
+              date_after: には開始日より前の日付を指定してください。
